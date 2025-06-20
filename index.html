@@ -1,41 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venue Finder App</title>
+  <link rel="stylesheet" href="style.css" />
 
-    <title>Venue Finder App</title>
+  <!-- AOS Library CSS & JS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Hero section -->
-    <section class="hero">
-      <h1>Find Your Perfect Venue</h1>
+</head>
+<body>
+
+  <!-- Logo bubble -->
+  <header class="logo-banner">
+    <div class="logo-circle">
+      <img src="logo.jpg" alt="Venue Finder Logo" class="logo-img" />
+    </div>
+    <h1 class="brand-name">Venue Finder</h1>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="text-block">
+      <h2>Find Your Perfect Venue</h2>
       <p>
-        Explore top‑rated event venues in your city—quick, easy, and all in one place.
+        Explore top-rated event venues in your city — quick, easy, and all in one place.
       </p>
 
-      <!-- Store buttons -->
       <div class="store-buttons">
-        <a href="#" class="store-btn">Download on App Store</a>
-        <a href="#" class="store-btn">Get it on Google Play</a>
+        <a href="#"><img src="app-store-badge.png" alt="App Store" class="store-badge" /></a>
+        <a href="#"><img src="google-play-badge.png" alt="Google Play" class="store-badge" /></a>
       </div>
+    </div>
 
-      <!-- Mobile‑app preview -->
-        <!-- Stylish embedded video -->
-        <video class="video-embed" autoplay muted loop playsinline>
-             <source src="video.mp4" type="video/mp4" />
-             Your browser does not support the video tag.
-        </video>
+    <!-- Video section -->
+    <div class="video-wrapper">
+      <video class="app-preview" autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+  <!-- Testimonial Section -->
+  <section class="testimonial-section" data-aos="fade-up">
+    <h3>What People Are Saying</h3>
+    <div class="testimonial-card">
+      <img src="user.jpeg" alt="User" class="testimonial-avatar" />
+      <p>"Venue Finder made booking my wedding venue effortless. Highly recommend!"</p>
+      <span class="testimonial-name">— Henry Benson., Lagos</span>
+    </div>
+  </section>
 
+  <!-- FAQ Section -->
+  <section class="faq-section" data-aos="fade-up">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Is the app free to use?</h4>
+      <p>Yes! Venue Finder is completely free for users browsing venues.</p>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Can I list my own venue?</h4>
+      <p>Absolutely. Just sign up and go to the "List a Venue" section inside the app.</p>
+    </div>
+  </section>
 
-    </section>
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section" data-aos="fade-up">
+    <h3>Stay Updated</h3>
+    <p>Be the first to hear about new venues and updates. Join our mailing list!</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      &copy; 2025 Venue Finder NG. All rights reserved.
-    </footer>
-  </body>
+  
+
+  <footer class="footer">
+    &copy; 2025 Venue Finder NG. All rights reserved.
+  </footer>
+
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    function toggleFAQ(el) {
+      el.classList.toggle("open");
+    }
+    AOS.init({ duration: 800, once: true });
+    </script>
+
+</body>
 </html>

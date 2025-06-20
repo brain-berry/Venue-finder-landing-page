@@ -1,4 +1,4 @@
-/* Basic reset + typography */
+/* === Base Reset === */
 *,
 *::before,
 *::after {
@@ -7,68 +7,113 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #f3f4f6; /* light gray */
+  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+  background-color: #f9fafb;
   color: #333;
-  line-height: 1.5;
 }
 
-/* Hero (full‑height section) */
+/* === Logo Banner === */
+.logo-banner {
+  background: #04c35c;
+  color: white;
+  padding-top: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(25%);
+  z-index: 10;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* === Hero Section === */
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
+  background-color: #04c35c;
+  color: white;
+  padding: 5rem 2rem 3rem;
+  gap: 2rem;
+}
+
+.text-block {
+  max-width: 600px;
   text-align: center;
-  background: #04c35c; /* match app’s bright green */
-  color: #fff;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem;
+.text-block h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.hero p {
-  font-size: 1.125rem;
-  max-width: 40rem;
-  margin: 0 0 1.5rem;
-}
-
-/* App‑store buttons */
-.store-buttons {
-  display: flex;
-  gap: 1rem;
+.text-block p {
+  font-size: 1.1rem;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.store-btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: opacity 0.2s ease;
+/* Store badges */
+.store-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.store-btn:hover {
-  opacity: 0.85;
+.store-badge {
+  height: 50px;
+  width: auto;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Mobile screenshot */
+.store-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Video preview */
+.video-wrapper {
+  max-width: 340px;
+  width: 100%;
+}
+
 .app-preview {
-  width: 16rem;            /* ~256 px */
-  border: 4px solid #fff;
+  width: 100%;
   border-radius: 1.5rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  border: none;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Footer */
+.app-preview:hover {
+  transform: scale(1.03);
+}
+
+/* === Footer === */
 .footer {
   background: #111;
   color: #fff;
@@ -77,37 +122,124 @@ body {
   font-size: 0.875rem;
 }
 
-/* Simple responsiveness */
-@media (min-width: 640px) {
-  .hero h1 {
-    font-size: 3rem;
+/* === Responsive Adjustments === */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+  }
+
+  .text-block h2 {
+    font-size: 2.5rem;
+  }
+
+  .brand-name {
+    font-size: 2rem;
   }
 }
-/* Stylish embedded video */
-.video-embed {
-  width: 100%;
-  max-width: 320px;
-  border: none;
-  outline: none;
-  border-radius: 1.5rem;
-  object-fit: cover;
-  aspect-ratio: 9 / 19.5; /* Rough ratio of a mobile screen */
-  box-shadow: 0 0 0 transparent;
-  transition: transform 0.3s ease-in-out;
+
+/* Section headings */
+section h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.video-embed:hover {
-  transform: scale(1.03);
+/* === Testimonial === */
+.testimonial-section {
+  padding: 4rem 2rem;
+  background: #fff;
 }
 
-/* Optional: Center it within the hero */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.testimonial-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #f3f4f6;
+  border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.testimonial-name {
+  display: block;
+  margin-top: 0.5rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* === FAQ Accordion === */
+.faq-section {
+  padding: 4rem 2rem;
+  background: #e5fbee;
+}
+
+.faq-item {
+  max-width: 600px;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.faq-item:hover {
+  background: #f0f0f0;
+}
+
+.faq-item p {
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.faq-item.open p {
+  display: block;
+}
+
+/* === Newsletter === */
+.newsletter-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 250px;
+}
+
+.newsletter-form button {
+  padding: 0.75rem 1.5rem;
   background: #04c35c;
   color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #03a14b;
 }
