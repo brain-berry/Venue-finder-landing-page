@@ -53,43 +53,38 @@
     </div>
   </section>
 
-  <!-- Testimonial Carousel Section -->
+<!-- Testimonial Carousel Section -->
 <section class="testimonial-section" data-aos="fade-up">
   <h3>What People Are Saying</h3>
 
   <div class="carousel-container">
-    <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
-
     <div class="testimonial-carousel" id="testimonialCarousel">
       <div class="testimonial-card">
         <img src="user1.jpeg" alt="User 1" class="testimonial-avatar" />
         <p>"Venue Finder made booking my wedding venue effortless. Highly recommend!"</p>
         <span class="testimonial-name">— Henry Benson, Lagos</span>
       </div>
-
       <div class="testimonial-card">
         <img src="user2.jpg" alt="User 2" class="testimonial-avatar" />
         <p>"As an event planner, I’ve saved hours using this app. It’s a total game changer."</p>
         <span class="testimonial-name">— Jeremiah Ederano, Ibadan</span>
       </div>
-
       <div class="testimonial-card">
         <img src="user3.jpeg" alt="User 3" class="testimonial-avatar" />
         <p>"From church meetings to conferences, Venue Finder always helps me find the right place."</p>
         <span class="testimonial-name">— Fabian Ruth, Port Harcourt</span>
       </div>
     </div>
+  </div>
 
-     <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
-    </div>
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots">
+    <span class="dot" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+</section>
 
-    <!-- Dots -->
-    <div class="carousel-dots" id="carouselDots">
-      <span class="dot" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-    </div>
-  </section>
 
   <!-- FAQ Section -->
   <section id="faq" class="faq-section" data-aos="fade-up">
@@ -155,25 +150,10 @@
   </script>
 
   <script>
-  function scrollCarousel(direction) {
-    const carousel = document.getElementById('testimonialCarousel');
-    const scrollAmount = 320;
-    carousel.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-  </script>
-  <script>
   const carousel = document.getElementById('testimonialCarousel');
   const dots = document.querySelectorAll('.dot');
   let currentSlide = 0;
   const totalSlides = dots.length;
-
-  function scrollCarousel(direction) {
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    goToSlide(currentSlide);
-  }
 
   function goToSlide(index) {
     const containerWidth = carousel.offsetWidth;
@@ -191,16 +171,30 @@
     });
   }
 
+  // Detect swipe progress and update dots
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft;
+    const width = carousel.offsetWidth;
+    const index = Math.round(scrollLeft / width);
+    if (index !== currentSlide) {
+      currentSlide = index;
+      updateDots();
+    }
+  });
+
   // Auto-scroll every 5 seconds
   setInterval(() => {
-    scrollCarousel(1);
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
   }, 5000);
 
-  // Update slide width on resize (optional for consistency)
+  // Keep dot state on resize
   window.addEventListener('resize', () => {
     goToSlide(currentSlide);
   });
-  </script>
+
+  updateDots();
+</script>
 
 
 
