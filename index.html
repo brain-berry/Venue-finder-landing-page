@@ -92,18 +92,24 @@
     <h3>Frequently Asked Questions</h3>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Is the app free to use?</h4>
-      <p>Yes! Venue Finder is completely free for users browsing venues.</p>
+      <h4>What is VenueFinderNG?</h4>
+      <p>VenueFinderNG is a platform (mobile app and website) that connects venue owners with event planners and customers looking to book event spaces in Nigeria </p>
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Can I list my own venue?</h4>
-      <p>Absolutely. Just sign up and go to the "List a Venue" section inside the app.</p>
+      <h4>Who can use VenueFinderNG?</h4>
+      <p>Anyone can use the platform whether you're a venue owner listing your property or an event planner searching for venues. All users must register and agree to our Terms & Conditions.</p>
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>How do I contact a venue owner?</h4>
-      <p>Each venue profile includes a contact button to call, email, or chat with the owner directly.</p>
+      <h4>What am I allowed to do on the platform?</h4>
+      <p>You can:
+        Create and manage listings.<br>
+        Browse available venues.<br>
+        Communicate with venue owners/ planners.<br>
+        Make or accept bookings.<br>
+        <b>You may not misuse the app, resell it, or tamper with the platform's design or code.</b>
+      </p>
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
@@ -112,19 +118,76 @@
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What cities are currently supported?</h4>
-      <p>We currently support Accra, Kumasi, Lagos, and Abuja — more cities coming soon!</p>
+      <h4>What are the responsibilities of a venue owner?</h4>
+      <p>Venue owners must:<br>
+        Upload accurate and up-to-date listings.<br>
+      	Respond to booking inquiries promptly.<br>
+        Ensure images, prices, and availability are correct.
+      </p>
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Is there a cancellation policy?</h4>
-      <p>Yes. Each venue lists its own cancellation terms. Be sure to check them before booking.</p>
+      <h4>What behaviors are prohibited?</h4>
+      <p>The following are not allowed:<br>
+          Posting fake or misleading listings.<br>
+          Impersonating another user.<br>
+          Using the app for illegal activity.<br>   
+          Uploading malware or attempting to hack the system.<br>
+          Promoting unrelated services.<br>
+          <b>Violations may lead to suspension or account deletion without notice.</b>
+      </p>
     </div>
 
     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Can I get a receipt or invoice?</h4>
-      <p>Yes, once your booking is confirmed, a receipt will be sent to your registered email.</p>
+      <h4>Does VenueFinderNG take a commission from bookings?</h4>
+      <p>No. All transactions are between the event planner and the venue owner. VenueFinderNG does not collect commission unless stated otherwise in future updates.
+      </p>
     </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>What if there's a dispute between a planner and a venue owner?</h4>
+      <p>VenueFinderNG is not liable for:<br>
+          Booking failures<br>
+          Disputes between use<br>
+          Payments made outside the app<br>
+          Event success or venue issues<br>
+          We recommend resolving issues through direct communication.
+      </p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Is my personal data safe?</h4>
+      <p>Yes. We only collect limited data (like your name, email, and phone number) to facilitate bookings.
+          We do not sell or share your data with third parties.
+      </p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Can my account be terminated?</h4>
+      <p>Yes. Your account may be suspended or removed if:<br>
+ 	      You violate our terms.<br>
+ 	      You upload false listings.<br>
+ 	      We receive consistent user complaints.
+      </p>
+    </div>
+
+     <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Do I own the content I upload?</h4>
+      <p>Yes, but by uploading photos or descriptions, you give VenueFinderNG permission to display and promote your content in the app and on social media.
+      </p>
+    </div>
+
+     <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>Will these terms ever change?</h4>
+      <p>Yes. We may update the Terms & Conditions as needed. Users will be notified via the app, SMS, or email. Continued use of the platform means you accept the updated terms.
+      </p>
+    </div>
+
+     <div class="faq-item" onclick="toggleFAQ(this)">
+      <h4>How do I contact VenueFinderNG support?</h4>
+      <p>If you have any questions or issues, contact us at <em>support@venuefinderng.com</em></p>
+    </div>
+    
   </section>
 
   <!-- Newsletter Signup -->
@@ -143,95 +206,111 @@
     &copy; 2025 Venue Finder NG. All rights reserved.
   </footer>
 
-  <a href="#" class="back-to-top">↑</a>
+  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top" id="backToTop">↑</a>
+
 
 
   <script>
     AOS.init();
   </script>
 
-  <script>
-  const carousel = document.getElementById('testimonialCarousel');
-  const dots = document.querySelectorAll('.dot');
-  let currentSlide = 0;
-  let totalSlides = dots.length;
-  let isAutoScrolling = true;
+    <script>
+    const carousel = document.getElementById('testimonialCarousel');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let totalSlides = dots.length;
+    let isAutoScrolling = true;
 
-  function goToSlide(index) {
-    const containerWidth = carousel.offsetWidth;
-    carousel.scrollTo({
-      left: index * containerWidth,
-      behavior: 'smooth'
-    });
-    currentSlide = index;
-    updateDots();
-  }
-
-  function updateDots() {
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentSlide);
-    });
-  }
-
-  function autoScroll() {
-    if (!isAutoScrolling) return;
-    currentSlide = (currentSlide + 1) % totalSlides;
-    goToSlide(currentSlide);
-  }
-
-  setInterval(autoScroll, 5000);
-
-  // Sync dots with manual swiping
-  carousel.addEventListener('scroll', () => {
-    const slideIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-    if (slideIndex !== currentSlide) {
-      currentSlide = slideIndex;
+    function goToSlide(index) {
+      const containerWidth = carousel.offsetWidth;
+      carousel.scrollTo({
+        left: index * containerWidth,
+        behavior: 'smooth'
+      });
+      currentSlide = index;
       updateDots();
     }
-  });
 
-  // Pause autoplay while user is swiping
-  carousel.addEventListener('touchstart', () => isAutoScrolling = false);
-  carousel.addEventListener('touchend', () => isAutoScrolling = true);
-
-  window.addEventListener('resize', () => goToSlide(currentSlide));
-</script>
-
-
-
-<script>
-  function toggleFAQ(el) {
-    el.classList.toggle("open");
-  }
-
-  function toggleMobileMenu(icon) {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('open');
-  }
-
-  function closeMenu() {
-  document.getElementById('nav-links').classList.remove('open');
-}
-
-  // Auto-close mobile nav on scroll
-  window.addEventListener('scroll', () => {
-    const navLinks = document.getElementById('nav-links');
-    if (navLinks.classList.contains('open')) {
-      navLinks.classList.remove('open');
+    function updateDots() {
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
     }
-  });
 
-  AOS.init({ duration: 800, once: true });
-</script>
+    function autoScroll() {
+      if (!isAutoScrolling) return;
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
 
+    setInterval(autoScroll, 5000);
 
+    // Sync dots with manual swiping
+    carousel.addEventListener('scroll', () => {
+      const slideIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      if (slideIndex !== currentSlide) {
+        currentSlide = slideIndex;
+        updateDots();
+      }
+    });
+
+    // Pause autoplay while user is swiping
+    carousel.addEventListener('touchstart', () => isAutoScrolling = false);
+    carousel.addEventListener('touchend', () => isAutoScrolling = true);
+
+    window.addEventListener('resize', () => goToSlide(currentSlide));
+  </script>
+
+  <script>
+    function toggleFAQ(el) {
+      el.classList.toggle("open");
+    }
+
+    function toggleMobileMenu(icon) {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('open');
+    }
+
+    function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+   }
+
+    // Auto-close mobile nav on scroll
+    window.addEventListener('scroll', () => {
+      const navLinks = document.getElementById('nav-links');
+      if (navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+      }
+    });
+
+    AOS.init({ duration: 800, once: true });
+  </script>
 
   <script>
     function toggleFAQ(el) {
       el.classList.toggle("open");
     }
     AOS.init({ duration: 800, once: true });
-    </script>
+  </script>
+
+  <script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const pageHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+
+    // Show when near bottom (e.g., within 500px)
+    if (scrollY + windowHeight >= pageHeight - 500) {
+      backToTop.classList.add('show');
+      } else {
+      backToTop.classList.remove('show');
+      }
+    });
+  </script>
+
+
 
 </body>
 </html>
